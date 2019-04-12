@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/vitormcastro/APIPETCare#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoskin": "^2.1.0"
   },
   "devDependencies": {},
   "keywords": []
