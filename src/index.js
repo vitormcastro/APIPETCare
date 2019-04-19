@@ -1,21 +1,20 @@
 
-require('rootpaht')();
+require('rootpath')();
 
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var config = require('config.json');
 
 var app = express();
-app.use(bodyParse.urlenconded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/api');
-api.use('/api/pessoas', require('./controllers/api/pessoas.controller'));
+
+app.use('/api/login', require('./controller/api/login.controller'));
 
 
-var apiPort = 6000;
+var apiPort = process.env.PORT || 6000;
 
-var serverAPI = api.listen(apiPort, function() {
+var serverAPI = app.listen(apiPort, function() {
   console.log('Server API listening at http://' + serverAPI.address().address + ':' + serverAPI.address().port);
 });
 

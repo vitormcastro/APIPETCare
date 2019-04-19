@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://localhost:21017/petCare",
+    "version": "1.0.0 - 16/04/2019"
+}
