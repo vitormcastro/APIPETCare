@@ -1,7 +1,7 @@
 {
   "name": "apipetcare",
   "version": "1.0.0",
-  "description": "Ser a API do app Pet Care",
+  "description": "serviço que irá auxiliar no app de pet",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/vitormcastro/APIPETCare.git"
   },
   "author": "Vitor Marques de Castro",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vitormcastro/APIPETCare/issues"
   },
@@ -19,7 +19,5 @@
   "dependencies": {
     "express": "^4.16.4",
     "mongoskin": "^2.1.0"
-  },
-  "devDependencies": {},
-  "keywords": []
+  }
 }
