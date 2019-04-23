@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/api/login', require('./controller/api/login.controller'));
+//app.use('/api/login', require('./controller/api/login.controller'));
 
 
 var apiPort = process.env.PORT || 6000;
