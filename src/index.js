@@ -12,7 +12,7 @@ api.use(bodyParser.json());
 api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/api/about','/api/users/authenticate', '/api/users/register'] }));
 
 
-//app.use('/api/login', require('./controller/api/login.controller'));
+api.use('/api/users', require('./controller/api/user.controller'));
 
 
 var apiPort = process.env.PORT || config.port;
