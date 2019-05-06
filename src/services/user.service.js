@@ -8,8 +8,12 @@ var connection = process.env.connectionString || config.connectionString;
 var db = mongo.db(connection, { native_parser: true });
 db.bind('users');
 
+var service = {};
+
 service.authenticate = authenticate;
 service.create = create;
+
+module.exports = service;
 
 function authenticate(username, password) {
     var deferred = Q.defer();

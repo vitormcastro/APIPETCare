@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userService = require('services/user.service');
+var userService = require('src/services/user.service.js');
 
 router.post('/authenticate', authenticateUser);
 router.post('/register', registerUser);
@@ -25,10 +25,10 @@ function authenticateUser(req, res){
 
 function registerUser(req, res) {
     userService.create(req.body)
-    .then(function () {
-        res.sendStatus(200);
-    })
-    .catch(function (err) {
-        res.status(400).send(err);
-    });
+        .then(function () {
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
 }
