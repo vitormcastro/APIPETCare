@@ -13,7 +13,13 @@ api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unle
 
 
 api.use('/api/users', require('./controller/api/user.controller'));
-
+api.get('/api/v1/todos', (req, res) => {
+  res.status(200).send({
+    success: 'true',
+    message: 'todos retrieved successfully',
+    todos: db
+  })
+});
 
 var apiPort = process.env.PORT || config.port;
 
