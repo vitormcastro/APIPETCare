@@ -25,8 +25,11 @@ function authenticateUser(req, res){
 
 function registerUser(req, res) {
     userService.create(req.body)
-        .then(function () {
-            res.sendStatus(200);
+        .then(function (response) {
+            
+            res.send({ userId: response.userId, token: response.token });
+          
+           
         })
         .catch(function (err) {
             res.status(400).send(err);
