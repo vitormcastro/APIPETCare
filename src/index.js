@@ -9,15 +9,14 @@ var config = require("config.json");
 var api = express();
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/api/about','/api/users/authenticate', '/api/users/register'] }));
+api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/api/about','/api/users/authenticate', '/api/users/register','/api'] }));
 
 
 api.use('/api/users', require('./controller/api/user.controller'));
-api.get('/api/v1/todos', (req, res) => {
+api.get('/api', (req, res) => {
   res.status(200).send({
     success: 'true',
-    message: 'todos retrieved successfully',
-    todos: db
+    message: 'todos retrieved successfully'
   })
 });
 
