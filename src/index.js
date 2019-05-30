@@ -9,11 +9,11 @@ var config = require("config.json");
 var api = express();
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/api/about','/api/users/authenticate', '/api/users/register',''] }));
+api.use('/app', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/app/about','/app/users/authenticate', '/app/users/register','/app'] }));
 
 
-api.use('/api/users', require('./controller/api/user.controller'));
-api.get('', (req, res) => {
+api.use('/app/users', require('./controller/api/user.controller'));
+api.get('/app', (req, res) => {
   res.status(200).send({
     success: 'true',
     message: 'todos retrieved successfully'
