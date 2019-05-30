@@ -7,9 +7,20 @@ var expressJwt = require('express-jwt');
 var config = require("config.json");
 
 var api = express();
+
+api.use(function(req, res, next){
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
-api.use('/app', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: ['/app/about','/app/users/authenticate', '/app/users/register','/app'] }));
+api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unless({ path: [
+  '/api/about',
+  '/api/users/authenticate', 
+  '/api/users/register',
+  '/api/register',
+  '/api'] }));
 
 
 api.use('/app/users', require('./controller/api/user.controller'));

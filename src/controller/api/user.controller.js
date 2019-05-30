@@ -15,11 +15,11 @@ function authenticateUser(req, res){
                 res.send({ userId: response.userId, token: response.token });
             } else {
                 // authentication failed
-                res.status(401).send('Usuário e/ou senha inválidos');
+                res.status(401).send({status: false, err: 'Usuário e/ou senha inválidos'});
             }
         })
         .catch(function (err) {
-            res.status(400).send(err);
+            res.status(400).send({status: false, err: err});
         });
 }
 
@@ -32,6 +32,6 @@ function registerUser(req, res) {
            
         })
         .catch(function (err) {
-            res.status(400).send(err);
+            res.status(400).send({status: false, err: err});
         });
 }

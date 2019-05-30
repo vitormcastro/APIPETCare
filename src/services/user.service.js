@@ -62,7 +62,7 @@ function create(userParam) {
             function (err, doc) {
                 if (err) deferred.reject(err.name + ': ' + err.message);
 
-                deferred.resolve({token :jwt.sign({ sub: user._id }, config.secret), userId: user._id});
+                deferred.resolve();
             });
     }
 
