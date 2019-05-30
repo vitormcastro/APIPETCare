@@ -23,8 +23,8 @@ api.use('/api', expressJwt({ secret: process.env.secret || config.secret }).unle
   '/api'] }));
 
 
-api.use('/app/users', require('./controller/api/user.controller'));
-api.get('/app', (req, res) => {
+api.use('/api/users', require('./controller/api/user.controller'));
+api.get('/api', (req, res) => {
   res.status(200).send({
     success: 'true',
     message: 'todos retrieved successfully'
